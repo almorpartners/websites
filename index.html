@@ -3,19 +3,20 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Bloom La Baule — Café · Restaurant</title>
+<title>La Ferme du Grand Clos — Crêperie La Baule</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,500;0,9..144,600;1,9..144,500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
   :root{
-    --cream:#F8F3EA;
-    --cream-2:#F1E9DA;
-    --ink:#2A2E27;
-    --sage:#7E9A75;
-    --sage-deep:#3F5942;
-    --terracotta:#E2724B;
-    --gold:#C79A4B;
-    --line: rgba(42,46,39,0.12);
+    --cream:#FBF5E9;
+    --cream-2:#F3E7D2;
+    --ink:#352318;
+    --wood:#5B3A28;
+    --brick:#B0432F;
+    --brick-deep:#8B3024;
+    --wheat:#D69A4C;
+    --green:#4C6444;
+    --line: rgba(53,35,24,0.14);
     --max: 1180px;
   }
   *{box-sizing:border-box; margin:0; padding:0;}
@@ -29,58 +30,60 @@
   }
   h1,h2,h3,.display{
     font-family:'Fraunces', serif;
-    font-weight:500;
+    font-weight:600;
     letter-spacing:-0.01em;
   }
   a{color:inherit; text-decoration:none;}
   img{max-width:100%; display:block;}
   .wrap{max-width:var(--max); margin:0 auto; padding:0 32px;}
-  ::selection{background:var(--terracotta); color:#fff;}
-
-  /* ---------- decorative botanical svg pieces ---------- */
-  .leaf-corner{position:absolute; pointer-events:none; opacity:0.5; z-index:0;}
+  ::selection{background:var(--brick); color:#fff;}
 
   /* ---------- nav ---------- */
   header{
     position:fixed; top:0; left:0; right:0; z-index:100;
-    background:rgba(248,243,234,0.85);
+    background:rgba(251,245,233,0.88);
     backdrop-filter: blur(10px);
     border-bottom:1px solid transparent;
     transition: border-color .4s ease, box-shadow .4s ease;
   }
   header.scrolled{
     border-bottom:1px solid var(--line);
-    box-shadow:0 8px 24px -16px rgba(0,0,0,0.15);
+    box-shadow:0 8px 24px -16px rgba(0,0,0,0.18);
   }
   nav.wrap{
     display:flex; align-items:center; justify-content:space-between;
-    padding-top:18px; padding-bottom:18px;
+    padding-top:16px; padding-bottom:16px;
   }
   .logo{
     font-family:'Fraunces', serif;
-    font-size:1.5rem;
-    font-weight:600;
+    font-size:1.35rem;
+    font-weight:700;
     letter-spacing:0.01em;
-    display:flex; align-items:center; gap:8px;
+    display:flex; align-items:center; gap:10px;
   }
-  .logo .dot{width:8px; height:8px; border-radius:50%; background:var(--terracotta);}
-  .nav-links{display:flex; gap:36px; font-size:0.92rem; font-weight:600;}
+  .logo .ico{
+    width:34px; height:34px; border-radius:50%; background:var(--brick);
+    display:flex; align-items:center; justify-content:center; color:#fff; font-size:1rem;
+    flex-shrink:0;
+  }
+  .logo small{display:block; font-family:'Manrope'; font-weight:600; font-size:0.62rem; letter-spacing:0.1em; text-transform:uppercase; color:var(--wood); opacity:0.7;}
+  .nav-links{display:flex; gap:34px; font-size:0.9rem; font-weight:600;}
   .nav-links a{position:relative; padding-bottom:4px;}
   .nav-links a::after{
     content:''; position:absolute; left:0; bottom:0; width:0; height:2px;
-    background:var(--terracotta); transition:width .3s ease;
+    background:var(--brick); transition:width .3s ease;
   }
   .nav-links a:hover::after{width:100%;}
   .btn{
     display:inline-flex; align-items:center; gap:8px;
-    background:var(--sage-deep); color:#fff;
+    background:var(--brick); color:#fff;
     padding:12px 24px; border-radius:100px;
     font-weight:700; font-size:0.88rem;
     border:none; cursor:pointer;
     transition: transform .25s ease, box-shadow .25s ease, background .25s ease;
-    box-shadow:0 8px 20px -10px rgba(63,89,66,0.6);
+    box-shadow:0 8px 20px -10px rgba(176,67,47,0.55);
   }
-  .btn:hover{transform:translateY(-2px); background:var(--terracotta); box-shadow:0 14px 26px -10px rgba(226,114,75,0.55);}
+  .btn:hover{transform:translateY(-2px); background:var(--brick-deep); box-shadow:0 14px 26px -10px rgba(139,48,36,0.55);}
   .btn-outline{
     background:transparent; border:1.5px solid var(--ink); color:var(--ink);
     box-shadow:none;
@@ -100,9 +103,17 @@
   .hero-bg{
     position:absolute; inset:0; z-index:-2;
     background:
-      radial-gradient(ellipse 60% 50% at 80% 10%, rgba(126,154,117,0.25), transparent 60%),
-      radial-gradient(ellipse 50% 40% at 10% 90%, rgba(226,114,75,0.18), transparent 60%),
+      radial-gradient(ellipse 60% 50% at 85% 8%, rgba(176,67,47,0.16), transparent 60%),
+      radial-gradient(ellipse 50% 40% at 5% 95%, rgba(76,100,68,0.18), transparent 60%),
       var(--cream);
+  }
+  /* subtle gingham corner */
+  .gingham-corner{
+    position:absolute; top:0; right:0; width:260px; height:260px; z-index:-1; opacity:0.5;
+    background-image:
+      repeating-linear-gradient(0deg, rgba(176,67,47,0.12) 0 20px, transparent 20px 40px),
+      repeating-linear-gradient(90deg, rgba(176,67,47,0.12) 0 20px, transparent 20px 40px);
+    mask-image: radial-gradient(circle at top right, black 0%, transparent 70%);
   }
   .hero-grid{
     display:grid; grid-template-columns: 1.1fr 0.9fr; gap:60px; align-items:center;
@@ -112,8 +123,8 @@
   .eyebrow{
     display:inline-flex; align-items:center; gap:10px;
     font-size:0.78rem; font-weight:700; letter-spacing:0.14em; text-transform:uppercase;
-    color:var(--sage-deep);
-    background:rgba(126,154,117,0.14);
+    color:var(--brick-deep);
+    background:rgba(176,67,47,0.1);
     padding:8px 16px; border-radius:100px;
     margin-bottom:28px;
     opacity:0; animation: fadeUp .8s ease forwards .1s;
@@ -121,23 +132,19 @@
   .eyebrow svg{width:14px; height:14px;}
 
   .hero h1{
-    font-size:clamp(2.8rem, 6vw, 4.6rem);
-    line-height:1.02;
+    font-size:clamp(2.6rem, 5.6vw, 4.3rem);
+    line-height:1.04;
     margin-bottom:24px;
-  }
-  .hero h1 span{
-    color:var(--terracotta);
-    font-style:italic;
-    font-weight:500;
   }
   .hero h1 .line{display:block; overflow:hidden;}
   .hero h1 .line span.reveal{display:inline-block; opacity:0; transform:translateY(110%); animation: lineUp .9s cubic-bezier(.2,.8,.2,1) forwards;}
   .hero h1 .line:nth-child(1) span.reveal{animation-delay:.15s;}
   .hero h1 .line:nth-child(2) span.reveal{animation-delay:.28s;}
   .hero h1 .line:nth-child(3) span.reveal{animation-delay:.41s;}
+  .hero h1 em{color:var(--brick); font-style:italic; font-weight:500;}
 
   .hero p.lead{
-    font-size:1.12rem; max-width:480px; color:#4a4f43;
+    font-size:1.12rem; max-width:480px; color:#5a4a3c;
     margin-bottom:36px;
     opacity:0; animation: fadeUp .8s ease forwards .55s;
   }
@@ -148,9 +155,8 @@
     display:flex; gap:36px; margin-top:48px;
     opacity:0; animation: fadeUp .8s ease forwards .85s;
   }
-  .hero-stats div{}
-  .hero-stats .num{font-family:'Fraunces', serif; font-size:1.9rem; color:var(--sage-deep);}
-  .hero-stats .lbl{font-size:0.78rem; color:#6b7065; text-transform:uppercase; letter-spacing:0.06em;}
+  .hero-stats .num{font-family:'Fraunces', serif; font-size:1.9rem; color:var(--brick-deep);}
+  .hero-stats .lbl{font-size:0.78rem; color:#7a6a5a; text-transform:uppercase; letter-spacing:0.06em;}
 
   .hero-visual{
     position:relative; height:560px;
@@ -158,56 +164,56 @@
   }
   .hero-img-main{
     position:absolute; top:0; right:0; width:78%; height:420px;
-    border-radius:28px; overflow:hidden;
-    box-shadow:0 40px 70px -30px rgba(42,46,39,0.4);
+    border-radius:20px; overflow:hidden;
+    box-shadow:0 40px 70px -30px rgba(53,35,24,0.45);
     animation: floatY 6s ease-in-out infinite;
+    border:6px solid #fff;
   }
   .hero-img-main img{width:100%; height:100%; object-fit:cover;}
   .hero-img-small{
     position:absolute; bottom:0; left:0; width:56%; height:230px;
-    border-radius:22px; overflow:hidden; border:6px solid var(--cream);
-    box-shadow:0 30px 50px -25px rgba(42,46,39,0.45);
+    border-radius:18px; overflow:hidden; border:6px solid #fff;
+    box-shadow:0 30px 50px -25px rgba(53,35,24,0.5);
     animation: floatY 7s ease-in-out infinite 0.4s;
   }
   .hero-img-small img{width:100%; height:100%; object-fit:cover;}
   .hero-badge{
-    position:absolute; top:38%; left:-10px;
-    background:#fff; border-radius:20px; padding:16px 20px;
-    box-shadow:0 20px 40px -20px rgba(0,0,0,0.3);
+    position:absolute; top:40%; left:-10px;
+    background:#fff; border-radius:18px; padding:16px 20px;
+    box-shadow:0 20px 40px -20px rgba(0,0,0,0.32);
     display:flex; align-items:center; gap:12px;
     animation: floatY 5s ease-in-out infinite 0.2s;
     z-index:3;
   }
-  .hero-badge .stars{color:var(--gold); font-size:0.95rem; letter-spacing:1px;}
-  .hero-badge .sub{font-size:0.72rem; color:#6b7065; margin-top:2px;}
+  .hero-badge .stars{color:var(--wheat); font-size:0.95rem; letter-spacing:1px;}
+  .hero-badge .sub{font-size:0.72rem; color:#7a6a5a; margin-top:2px;}
 
   @keyframes floatY{0%,100%{transform:translateY(0)} 50%{transform:translateY(-14px)}}
   @keyframes fadeUp{from{opacity:0; transform:translateY(22px)} to{opacity:1; transform:translateY(0)}}
   @keyframes fadeIn{from{opacity:0} to{opacity:1}}
   @keyframes lineUp{to{opacity:1; transform:translateY(0)}}
 
-  /* scroll cue */
   .scroll-cue{
     position:absolute; bottom:28px; left:32px;
     display:flex; align-items:center; gap:10px;
-    font-size:0.74rem; letter-spacing:0.08em; text-transform:uppercase; color:#6b7065;
+    font-size:0.74rem; letter-spacing:0.08em; text-transform:uppercase; color:#7a6a5a;
   }
   .scroll-cue .stick{width:1px; height:36px; background:var(--ink); position:relative; overflow:hidden;}
-  .scroll-cue .stick::after{content:''; position:absolute; top:-100%; left:0; width:100%; height:100%; background:var(--terracotta); animation:stickMove 1.8s ease-in-out infinite;}
+  .scroll-cue .stick::after{content:''; position:absolute; top:-100%; left:0; width:100%; height:100%; background:var(--brick); animation:stickMove 1.8s ease-in-out infinite;}
   @keyframes stickMove{0%{top:-100%} 60%{top:100%} 100%{top:100%}}
 
   /* ---------- marquee ---------- */
   .marquee{
-    background:var(--sage-deep); color:var(--cream);
+    background:var(--wood); color:var(--cream);
     padding:18px 0; overflow:hidden; white-space:nowrap;
     border-top:1px solid rgba(255,255,255,0.08); border-bottom:1px solid rgba(255,255,255,0.08);
   }
   .marquee-track{display:inline-block; animation: scrollLeft 28s linear infinite;}
   .marquee span{
-    display:inline-block; font-family:'Fraunces', serif; font-style:italic; font-size:1.25rem;
+    display:inline-block; font-family:'Fraunces', serif; font-style:italic; font-size:1.2rem;
     padding:0 32px; opacity:0.92;
   }
-  .marquee span::after{content:'✦'; font-style:normal; margin-left:32px; color:var(--terracotta);}
+  .marquee span::after{content:'✦'; font-style:normal; margin-left:32px; color:var(--wheat);}
   @keyframes scrollLeft{from{transform:translateX(0)} to{transform:translateX(-50%)}}
 
   /* ---------- section generic ---------- */
@@ -215,11 +221,11 @@
   .sec-head{max-width:640px; margin-bottom:64px;}
   .sec-eyebrow{
     font-size:0.78rem; font-weight:700; letter-spacing:0.14em; text-transform:uppercase;
-    color:var(--terracotta); margin-bottom:14px; display:block;
+    color:var(--brick); margin-bottom:14px; display:block;
   }
   .sec-head h2{font-size:clamp(2.1rem, 4vw, 3rem); line-height:1.08;}
-  .sec-head h2 em{color:var(--sage-deep); font-style:italic;}
-  .sec-head p{margin-top:18px; color:#5b6155; font-size:1.05rem; max-width:520px;}
+  .sec-head h2 em{color:var(--green); font-style:italic;}
+  .sec-head p{margin-top:18px; color:#5a4a3c; font-size:1.05rem; max-width:520px;}
 
   .reveal-up{opacity:0; transform:translateY(40px); transition:opacity .8s ease, transform .8s cubic-bezier(.2,.8,.2,1);}
   .reveal-up.in{opacity:1; transform:translateY(0);}
@@ -229,20 +235,20 @@
   .about-grid{display:grid; grid-template-columns:0.9fr 1.1fr; gap:70px; align-items:center;}
   @media (max-width:900px){.about-grid{grid-template-columns:1fr;}}
   .about-imgs{position:relative; height:480px;}
-  .about-imgs .a1{position:absolute; top:0; left:0; width:62%; height:330px; border-radius:24px; overflow:hidden; box-shadow:0 30px 60px -28px rgba(0,0,0,0.35);}
-  .about-imgs .a2{position:absolute; bottom:0; right:0; width:54%; height:240px; border-radius:24px; overflow:hidden; border:6px solid var(--cream-2); box-shadow:0 30px 60px -28px rgba(0,0,0,0.35);}
+  .about-imgs .a1{position:absolute; top:0; left:0; width:62%; height:330px; border-radius:18px; overflow:hidden; box-shadow:0 30px 60px -28px rgba(0,0,0,0.4); border:6px solid #fff;}
+  .about-imgs .a2{position:absolute; bottom:0; right:0; width:54%; height:240px; border-radius:18px; overflow:hidden; border:6px solid #fff; box-shadow:0 30px 60px -28px rgba(0,0,0,0.4);}
   .about-imgs img{width:100%; height:100%; object-fit:cover; transition:transform .7s ease;}
   .about-imgs div:hover img{transform:scale(1.06);}
   .about-text h2{margin-bottom:24px;}
-  .about-text p{color:#4a4f43; margin-bottom:20px; font-size:1.04rem;}
+  .about-text p{color:#5a4a3c; margin-bottom:20px; font-size:1.04rem;}
   .feature-list{display:grid; grid-template-columns:1fr 1fr; gap:22px; margin-top:36px;}
   .feature{display:flex; gap:14px; align-items:flex-start;}
   .feature .ico{
-    width:38px; height:38px; border-radius:11px; background:var(--sage);
+    width:38px; height:38px; border-radius:11px; background:var(--green);
     display:flex; align-items:center; justify-content:center; flex-shrink:0; color:#fff;
   }
   .feature h4{font-size:0.96rem; margin-bottom:4px; font-family:'Manrope'; font-weight:700;}
-  .feature p{font-size:0.86rem; color:#6b7065; margin:0;}
+  .feature p{font-size:0.86rem; color:#7a6a5a; margin:0;}
 
   /* ---------- menu / gallery ---------- */
   .menu{background:var(--cream);}
@@ -260,18 +266,18 @@
     border-bottom:1px dashed var(--line);
   }
   .menu-item .mi-l h4{font-family:'Fraunces'; font-weight:500; font-size:1.08rem;}
-  .menu-item .mi-l p{font-size:0.85rem; color:#6b7065; margin-top:4px; max-width:340px;}
-  .menu-item .price{font-family:'Fraunces'; font-weight:600; color:var(--terracotta); white-space:nowrap; font-size:1.05rem;}
+  .menu-item .mi-l p{font-size:0.85rem; color:#7a6a5a; margin-top:4px; max-width:340px;}
+  .menu-item .price{font-family:'Fraunces'; font-weight:600; color:var(--brick); white-space:nowrap; font-size:1.05rem;}
 
   /* gallery masonry */
-  .gallery{background:var(--sage-deep); color:var(--cream);}
-  .gallery .sec-head p{color:rgba(248,243,234,0.7);}
+  .gallery{background:var(--green); color:var(--cream);}
+  .gallery .sec-head p{color:rgba(251,245,233,0.72);}
   .gallery .sec-eyebrow{color:#E9C77A;}
   .gallery-grid{
     display:grid; grid-template-columns:repeat(4,1fr); grid-auto-rows:140px; gap:14px;
   }
   @media (max-width:860px){.gallery-grid{grid-template-columns:repeat(2,1fr);}}
-  .g-item{border-radius:18px; overflow:hidden; position:relative;}
+  .g-item{border-radius:16px; overflow:hidden; position:relative;}
   .g-item img{width:100%; height:100%; object-fit:cover; transition:transform .6s ease;}
   .g-item:hover img{transform:scale(1.1);}
   .g-item.tall{grid-row:span 2;}
@@ -283,17 +289,31 @@
   .testi-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:26px;}
   @media (max-width:900px){.testi-grid{grid-template-columns:1fr;}}
   .testi-card{
-    background:#fff; border-radius:22px; padding:32px;
+    background:#fff; border-radius:18px; padding:32px;
     box-shadow:0 24px 50px -34px rgba(0,0,0,0.25);
     transition:transform .35s ease, box-shadow .35s ease;
   }
-  .testi-card:hover{transform:translateY(-8px); box-shadow:0 30px 60px -28px rgba(0,0,0,0.3);}
-  .testi-card .stars{color:var(--gold); margin-bottom:16px; font-size:0.95rem; letter-spacing:2px;}
-  .testi-card p{font-size:0.98rem; color:#3a3e34; margin-bottom:22px;}
+  .testi-card:hover{transform:translateY(-8px); box-shadow:0 30px 60px -28px rgba(0,0,0,0.32);}
+  .testi-card .stars{color:var(--wheat); margin-bottom:16px; font-size:0.95rem; letter-spacing:2px;}
+  .testi-card p{font-size:0.98rem; color:#3a2c20; margin-bottom:22px;}
   .testi-who{display:flex; align-items:center; gap:12px;}
-  .av{width:42px; height:42px; border-radius:50%; background:var(--sage); color:#fff; display:flex; align-items:center; justify-content:center; font-family:'Fraunces'; font-weight:600;}
+  .av{width:42px; height:42px; border-radius:50%; background:var(--brick); color:#fff; display:flex; align-items:center; justify-content:center; font-family:'Fraunces'; font-weight:600;}
   .testi-who b{font-size:0.92rem; display:block;}
-  .testi-who span{font-size:0.78rem; color:#6b7065;}
+  .testi-who span{font-size:0.78rem; color:#7a6a5a;}
+
+  /* ---------- terrace banner ---------- */
+  .terrace{
+    background:var(--cream); padding-top:0;
+  }
+  .terrace-card{
+    position:relative; border-radius:28px; overflow:hidden; height:380px;
+    display:flex; align-items:flex-end;
+  }
+  .terrace-card img{position:absolute; inset:0; width:100%; height:100%; object-fit:cover;}
+  .terrace-card::before{content:''; position:absolute; inset:0; background:linear-gradient(to top, rgba(53,35,24,0.85), rgba(53,35,24,0.1) 60%);}
+  .terrace-content{position:relative; z-index:2; color:#fff; padding:44px;}
+  .terrace-content h3{font-size:1.8rem; margin-bottom:10px;}
+  .terrace-content p{max-width:460px; opacity:0.9; font-size:0.98rem;}
 
   /* ---------- CTA reservation ---------- */
   .cta-section{
@@ -303,7 +323,7 @@
   }
   .cta-section::before{
     content:''; position:absolute; width:560px; height:560px; border-radius:50%;
-    background:radial-gradient(circle, rgba(226,114,75,0.35), transparent 70%);
+    background:radial-gradient(circle, rgba(176,67,47,0.4), transparent 70%);
     top:-220px; left:50%; transform:translateX(-50%);
     animation:pulse 6s ease-in-out infinite;
   }
@@ -311,14 +331,19 @@
   .cta-inner{position:relative; z-index:2; max-width:680px; margin:0 auto;}
   .cta-inner span.sec-eyebrow{color:#E9C77A;}
   .cta-inner h2{font-size:clamp(2.2rem,4.5vw,3.4rem); margin-bottom:22px;}
-  .cta-inner p{color:rgba(248,243,234,0.72); margin-bottom:40px; font-size:1.05rem;}
+  .cta-inner p{color:rgba(251,245,233,0.72); margin-bottom:40px; font-size:1.05rem;}
   .cta-row{display:flex; gap:16px; justify-content:center; flex-wrap:wrap;}
-  .cta-section .btn-outline{border-color:rgba(248,243,234,0.4); color:var(--cream);}
+  .cta-section .btn-outline{border-color:rgba(251,245,233,0.4); color:var(--cream);}
   .cta-section .btn-outline:hover{background:var(--cream); color:var(--ink);}
+  .cta-address{
+    margin-top:36px; padding-top:30px; border-top:1px solid rgba(251,245,233,0.15);
+    display:flex; justify-content:center; gap:46px; flex-wrap:wrap; font-size:0.9rem; color:rgba(251,245,233,0.75);
+  }
+  .cta-address div b{display:block; color:var(--cream); font-family:'Fraunces'; font-weight:500; margin-bottom:4px;}
 
   /* ---------- footer ---------- */
-  footer{background:var(--ink); color:rgba(248,243,234,0.65); padding:60px 0 30px;}
-  .foot-grid{display:grid; grid-template-columns:1.4fr 1fr 1fr 1fr; gap:40px; padding-bottom:40px; border-bottom:1px solid rgba(248,243,234,0.1);}
+  footer{background:var(--ink); color:rgba(251,245,233,0.65); padding:60px 0 30px;}
+  .foot-grid{display:grid; grid-template-columns:1.4fr 1fr 1fr 1fr; gap:40px; padding-bottom:40px; border-bottom:1px solid rgba(251,245,233,0.1);}
   @media (max-width:760px){.foot-grid{grid-template-columns:1fr 1fr;}}
   .foot-grid h5{color:var(--cream); font-family:'Fraunces'; font-weight:500; margin-bottom:16px; font-size:1rem;}
   .foot-grid ul{list-style:none;}
@@ -326,18 +351,23 @@
   .foot-grid li a:hover{color:var(--cream);}
   .foot-logo{font-family:'Fraunces'; font-size:1.4rem; color:var(--cream); margin-bottom:14px;}
   .foot-bottom{display:flex; justify-content:space-between; padding-top:26px; font-size:0.8rem; flex-wrap:wrap; gap:10px;}
-
-  /* utility */
-  .accent-italic{font-style:italic; color:var(--terracotta);}
 </style>
 </head>
 <body>
 
 <header id="header">
   <nav class="wrap">
-    <div class="logo"><span class="dot"></span>Bloom <span style="font-weight:400; opacity:.6; font-size:1rem;">La Baule</span></div>
+    <div class="logo">
+      <div class="ico">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12h18M5 12V8a2 2 0 012-2h10a2 2 0 012 2v4M7 12v6M17 12v6"/></svg>
+      </div>
+      <div>
+        La Ferme du Grand Clos
+        <small>Crêperie · La Baule</small>
+      </div>
+    </div>
     <div class="nav-links">
-      <a href="#about">L'Esprit</a>
+      <a href="#about">La Ferme</a>
       <a href="#menu">La Carte</a>
       <a href="#gallery">Galerie</a>
       <a href="#avis">Avis</a>
@@ -348,36 +378,37 @@
 
 <section class="hero">
   <div class="hero-bg"></div>
+  <div class="gingham-corner"></div>
   <div class="wrap hero-grid">
     <div>
       <div class="eyebrow">
-        <svg viewBox="0 0 24 24" fill="none"><path d="M12 2C9 7 6 9 6 13a6 6 0 0012 0c0-4-3-6-6-11z" fill="currentColor"/></svg>
-        Café · Restaurant — Cœur de La Baule
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12h18M5 12V8a2 2 0 012-2h10a2 2 0 012 2v4"/></svg>
+        Crêperie artisanale — La Baule
       </div>
       <h1>
-        <span class="line"><span class="reveal">Un brunch qui</span></span>
-        <span class="line"><span class="reveal">fleurit comme</span></span>
-        <span class="line"><span class="reveal">l'<span style="color:var(--terracotta); font-style:italic;">été</span> à La Baule</span></span>
+        <span class="line"><span class="reveal">La galette</span></span>
+        <span class="line"><span class="reveal">comme à la <em>ferme</em></span></span>
+        <span class="line"><span class="reveal">depuis toujours</span></span>
       </h1>
-      <p class="lead">Planches généreuses, brunchs gourmands et carte de saison, servis sur notre terrasse fleurie à deux pas de la plage. Bloom, c'est la pause qui sent bon les vacances.</p>
+      <p class="lead">Pâte de blé noir tournée à la main, garnitures généreuses et grande terrasse ombragée. À La Ferme du Grand Clos, on cuisine la Bretagne avec simplicité, à deux pas du centre de La Baule.</p>
       <div class="hero-cta">
         <a href="#reserver" class="btn">Réserver une table</a>
         <a href="#menu" class="btn btn-outline">Voir la carte</a>
       </div>
       <div class="hero-stats">
-        <div><div class="num">4.7★</div><div class="lbl">Avis Google</div></div>
-        <div><div class="num">100%</div><div class="lbl">Frais & fait maison</div></div>
-        <div><div class="num">7j/7</div><div class="lbl">Service en terrasse</div></div>
+        <div><div class="num">100%</div><div class="lbl">Blé noir & pâte maison</div></div>
+        <div><div class="num">60+</div><div class="lbl">Places en terrasse</div></div>
+        <div><div class="num">7j/7</div><div class="lbl">Ouvert midi & soir</div></div>
       </div>
     </div>
     <div class="hero-visual">
-      <div class="hero-img-main"><img src="REMPLACER-PAR-PHOTO-PLANCHE.jpg" alt="Planche de charcuterie et fromages Bloom La Baule"></div>
-      <div class="hero-img-small"><img src="REMPLACER-PAR-PHOTO-TERRASSE.jpg" alt="Terrasse Bloom La Baule"></div>
+      <div class="hero-img-main"><img src="REMPLACER-PHOTO-GALETTE-JAMBON.jpg" alt="Galette complète La Ferme du Grand Clos"></div>
+      <div class="hero-img-small"><img src="REMPLACER-PHOTO-TERRASSE.jpg" alt="Terrasse ombragée La Ferme du Grand Clos"></div>
       <div class="hero-badge">
         <div class="stars">★★★★★</div>
         <div>
-          <b style="font-family:'Fraunces'; font-size:0.95rem;">+250 avis</b>
-          <div class="sub">"Le spot brunch de l'été"</div>
+          <b style="font-family:'Fraunces'; font-size:0.95rem;">Recette traditionnelle</b>
+          <div class="sub">Galettes tournées sur billig</div>
         </div>
       </div>
     </div>
@@ -387,46 +418,46 @@
 
 <div class="marquee">
   <div class="marquee-track">
-    <span>Brunchs du week-end</span>
-    <span>Planches à partager</span>
-    <span>Terrasse face à la ville</span>
-    <span>Cocktails maison</span>
-    <span>Produits locaux & bio</span>
-    <span>Brunchs du week-end</span>
-    <span>Planches à partager</span>
-    <span>Terrasse face à la ville</span>
-    <span>Cocktails maison</span>
-    <span>Produits locaux & bio</span>
+    <span>Galettes de blé noir</span>
+    <span>Crêpes sucrées maison</span>
+    <span>Cidres bretons</span>
+    <span>Grande terrasse arborée</span>
+    <span>Produits du terroir</span>
+    <span>Galettes de blé noir</span>
+    <span>Crêpes sucrées maison</span>
+    <span>Cidres bretons</span>
+    <span>Grande terrasse arborée</span>
+    <span>Produits du terroir</span>
   </div>
 </div>
 
 <section class="about" id="about">
   <div class="wrap about-grid">
     <div class="about-imgs reveal-up">
-      <div class="a1"><img src="REMPLACER-PAR-PHOTO-SALLE.jpg" alt="Salle Bloom La Baule, papier peint fleuri"></div>
-      <div class="a2"><img src="REMPLACER-PAR-PHOTO-PLAT.jpg" alt="Toast avocado Bloom"></div>
+      <div class="a1"><img src="REMPLACER-PHOTO-GALETTE-ALGUES.jpg" alt="Galette aux algues et citron"></div>
+      <div class="a2"><img src="REMPLACER-PHOTO-CREPE-CARAMEL.jpg" alt="Crêpe au caramel beurre salé"></div>
     </div>
     <div class="about-text reveal-up">
       <span class="sec-eyebrow">Notre histoire</span>
-      <h2>Une bulle de douceur, <em>au cœur de La Baule</em></h2>
-      <p>Entre rotin tressé, papier peint fleuri et suspensions en bois, Bloom a été pensé comme un cocon lumineux où l'on prend le temps. Notre cuisine met à l'honneur les produits frais, les planches généreuses et les recettes de saison — du petit-déjeuner jusqu'à l'apéro.</p>
-      <p>Que ce soit en intérieur, sous notre pergola fleurie, ou en terrasse face à la rue, chaque table profite de la même attention : des assiettes soignées, un service chaleureux, une ambiance qui donne envie de rester.</p>
+      <h2>L'esprit <em>ferme</em>, le goût de Bretagne</h2>
+      <p>Nappes à carreaux, poutres apparentes et grand jardin planté : La Ferme du Grand Clos a gardé l'âme d'une vraie maison bretonne. Ici, la galette se tourne minute par minute, garnie de produits choisis avec soin — jambon de pays, fromage affiné, algues fraîches, noix concassées.</p>
+      <p>Côté sucré, nos crêpes se dégustent nature, flambées ou généreusement nappées de caramel au beurre salé et de chocolat maison. Une cuisine simple, sincère, pensée pour être partagée en famille ou entre amis.</p>
       <div class="feature-list">
         <div class="feature">
           <div class="ico"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20M2 12h20"/></svg></div>
-          <div><h4>Produits frais</h4><p>Sélection locale, fromages & charcuteries de pays</p></div>
+          <div><h4>Blé noir 100% breton</h4><p>Pâte tournée à la main chaque jour</p></div>
         </div>
         <div class="feature">
           <div class="ico"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/></svg></div>
-          <div><h4>Terrasse toute l'année</h4><p>Au soleil dès les premiers rayons</p></div>
+          <div><h4>Grande terrasse</h4><p>Jardin ombragé, idéal en famille</p></div>
         </div>
         <div class="feature">
           <div class="ico"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 12h16M4 6h16M4 18h16"/></svg></div>
-          <div><h4>Carte évolutive</h4><p>Plats du moment, ardoise renouvelée</p></div>
+          <div><h4>Carte généreuse</h4><p>Galettes, crêpes, cidres bretons</p></div>
         </div>
         <div class="feature">
           <div class="ico"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21s-7-4.5-9-9a5 5 0 019-3 5 5 0 019 3c-2 4.5-9 9-9 9z"/></svg></div>
-          <div><h4>Fait avec passion</h4><p>Une équipe qui aime ce qu'elle sert</p></div>
+          <div><h4>Esprit familial</h4><p>Une équipe fidèle, un accueil chaleureux</p></div>
         </div>
       </div>
     </div>
@@ -437,50 +468,40 @@
   <div class="wrap">
     <div class="sec-head reveal-up">
       <span class="sec-eyebrow">La carte</span>
-      <h2>Pensée pour être <em>partagée</em></h2>
-      <p>Un aperçu de nos brunchs, planches et plats signature. Carte complète disponible sur place et à l'accueil.</p>
+      <h2>Galettes & crêpes, <em>à la bretonne</em></h2>
+      <p>Un aperçu de nos spécialités. Carte complète et suggestions du jour disponibles sur place.</p>
     </div>
 
     <div class="menu-tabs">
-      <button class="menu-tab active" data-tab="brunch">Brunchs</button>
-      <button class="menu-tab" data-tab="planches">Planches & Assiettes</button>
-      <button class="menu-tab" data-tab="plats">Nos Plats</button>
-      <button class="menu-tab" data-tab="boissons">Boissons</button>
+      <button class="menu-tab active" data-tab="galettes">Galettes salées</button>
+      <button class="menu-tab" data-tab="crepes">Crêpes sucrées</button>
+      <button class="menu-tab" data-tab="boissons">Cidres & Boissons</button>
     </div>
 
-    <div class="menu-panel" data-panel="brunch">
+    <div class="menu-panel" data-panel="galettes">
       <div class="menu-grid reveal-up">
-        <div class="menu-item"><div class="mi-l"><h4>Le Classique</h4><p>Café, thé ou chocolat, viennoiserie, pain, beurre salé, jus bio</p></div><div class="price">14,90€</div></div>
-        <div class="menu-item"><div class="mi-l"><h4>Continental</h4><p>Viennoiseries, œufs brouillés ou pochés, charcuterie, fromages, saumon fumé</p></div><div class="price">24,90€</div></div>
-        <div class="menu-item"><div class="mi-l"><h4>Végé Méditerranéen</h4><p>Pain pita, houmous zaatar, caviar d'aubergine, granola, crudités</p></div><div class="price">23,90€</div></div>
-        <div class="menu-item"><div class="mi-l"><h4>Bloom Avocado</h4><p>Avocado toast, œuf poché, saumon fumé, crème de raifort, câpres frits</p></div><div class="price">22,90€</div></div>
+        <div class="menu-item"><div class="mi-l"><h4>La Paysanne</h4><p>Jambon de pays roulé, salade de mesclun, miel, vinaigrette maison</p></div><div class="price">13,90€</div></div>
+        <div class="menu-item"><div class="mi-l"><h4>La Forestière</h4><p>Jambon de pays, mesclun, noix concassées, sauce moutarde au miel</p></div><div class="price">14,50€</div></div>
+        <div class="menu-item"><div class="mi-l"><h4>La Marine</h4><p>Algues fraîches, citron, sauce tartare maison</p></div><div class="price">12,90€</div></div>
+        <div class="menu-item"><div class="mi-l"><h4>La Champêtre</h4><p>Mesclun de saison, vinaigrette à l'ancienne, fleurs comestibles</p></div><div class="price">11,90€</div></div>
       </div>
     </div>
 
-    <div class="menu-panel" data-panel="planches" style="display:none;">
+    <div class="menu-panel" data-panel="crepes" style="display:none;">
       <div class="menu-grid reveal-up">
-        <div class="menu-item"><div class="mi-l"><h4>Petites assiettes apéritives</h4><p>Sélection du moment, voir ardoise</p></div><div class="price">dès 10,90€</div></div>
-        <div class="menu-item"><div class="mi-l"><h4>L'Assiette Tapas</h4><p>Houmous zaatar, caviar d'aubergine, tzatziki, pain pita, accras, poulet coréen</p></div><div class="price">24,90€</div></div>
-        <div class="menu-item"><div class="mi-l"><h4>Planche apéritive de tradition</h4><p>Fromages, charcuterie, pain, fruits frais & secs, chutney figues</p></div><div class="price">26,90€</div></div>
-        <div class="menu-item"><div class="mi-l"><h4>Avocado toast sucré façon Pierre Hermé</h4><p>Création signature sucrée-salée</p></div><div class="price">9,90€</div></div>
-      </div>
-    </div>
-
-    <div class="menu-panel" data-panel="plats" style="display:none;">
-      <div class="menu-grid reveal-up">
-        <div class="menu-item"><div class="mi-l"><h4>Burger de poulet frit coréen</h4><p>Sésame, kimchi, mayonnaise, cébettes — servi avec frites maison</p></div><div class="price">19,90€</div></div>
-        <div class="menu-item"><div class="mi-l"><h4>Fish and Chips</h4><p>Mayonnaise chimichurri, frites maison</p></div><div class="price">18,90€</div></div>
-        <div class="menu-item"><div class="mi-l"><h4>Coquisotto</h4><p>Champignons et comté AOC</p></div><div class="price">19,90€</div></div>
-        <div class="menu-item"><div class="mi-l"><h4>La vraie salade César</h4><p>Sauce aux anchois de l'Atlantique</p></div><div class="price">17,90€</div></div>
+        <div class="menu-item"><div class="mi-l"><h4>Caramel beurre salé</h4><p>Crêpe pliée, caramel maison coulant</p></div><div class="price">6,90€</div></div>
+        <div class="menu-item"><div class="mi-l"><h4>Chocolat amandes</h4><p>Chocolat fondant, éclats d'amandes torréfiées</p></div><div class="price">7,50€</div></div>
+        <div class="menu-item"><div class="mi-l"><h4>Banane glace chocolat</h4><p>Banane fraîche, glace vanille, chantilly, chocolat chaud</p></div><div class="price">8,90€</div></div>
+        <div class="menu-item"><div class="mi-l"><h4>Trio glacé chantilly</h4><p>Trois boules de glace, chantilly maison, coulis chocolat</p></div><div class="price">9,50€</div></div>
       </div>
     </div>
 
     <div class="menu-panel" data-panel="boissons" style="display:none;">
       <div class="menu-grid reveal-up">
-        <div class="menu-item"><div class="mi-l"><h4>Bloody Bloom</h4><p>Tequila, jus de tomate, piments, sirop de canne</p></div><div class="price">10,90€</div></div>
-        <div class="menu-item"><div class="mi-l"><h4>La Sangria Bretonne</h4><p>Cidre brut, calvados, fruits de la région, miel, cannelle</p></div><div class="price">10,90€</div></div>
-        <div class="menu-item"><div class="mi-l"><h4>Le Breton Coffee</h4><p>Café avec whisky breton</p></div><div class="price">10,90€</div></div>
-        <div class="menu-item"><div class="mi-l"><h4>Espresso Tonic</h4><p>Signature maison</p></div><div class="price">5,00€</div></div>
+        <div class="menu-item"><div class="mi-l"><h4>Cidre brut fermier</h4><p>Bolée ou bouteille, production locale</p></div><div class="price">dès 3,50€</div></div>
+        <div class="menu-item"><div class="mi-l"><h4>Cidre doux</h4><p>Bolée ou bouteille</p></div><div class="price">dès 3,50€</div></div>
+        <div class="menu-item"><div class="mi-l"><h4>Jus de pomme fermier</h4><p>Pressé artisanalement</p></div><div class="price">3,90€</div></div>
+        <div class="menu-item"><div class="mi-l"><h4>Limonade artisanale</h4><p>Recette maison</p></div><div class="price">3,50€</div></div>
       </div>
     </div>
   </div>
@@ -490,8 +511,8 @@
   <div class="wrap">
     <div class="sec-head reveal-up">
       <span class="sec-eyebrow">Galerie</span>
-      <h2>Le décor parle <em>de lui-même</em></h2>
-      <p>Un aperçu de l'ambiance Bloom — entre verdure, lumière et bons produits.</p>
+      <h2>Le goût se voit <em>déjà</em></h2>
+      <p>Un aperçu de nos galettes, crêpes et de notre terrasse ombragée.</p>
     </div>
     <div class="gallery-grid reveal-up">
       <div class="g-item tall"><img src="REMPLACER-PHOTO-1.jpg" alt=""></div>
@@ -515,18 +536,30 @@
     <div class="testi-grid reveal-up">
       <div class="testi-card">
         <div class="stars">★★★★★</div>
-        <p>"Décor magnifique, planche generous et service adorable. On a passé un super moment en terrasse."</p>
-        <div class="testi-who"><div class="av">V</div><div><b>Victoria G.</b><span>Avis Google</span></div></div>
+        <p>"La galette complète est généreuse et la pâte parfaitement croustillante. La terrasse sous les arbres est un vrai plus."</p>
+        <div class="testi-who"><div class="av">M</div><div><b>Marine T.</b><span>Avis Google</span></div></div>
       </div>
       <div class="testi-card">
         <div class="stars">★★★★★</div>
-        <p>"Le fish and chips est délicieux, et l'ambiance florale donne tout de suite le sourire."</p>
-        <div class="testi-who"><div class="av">C</div><div><b>Cécile D.</b><span>Avis Google</span></div></div>
+        <p>"Crêpe caramel beurre salé incroyable, service très sympa. On y retourne à chaque séjour à La Baule."</p>
+        <div class="testi-who"><div class="av">J</div><div><b>Julien P.</b><span>Avis Google</span></div></div>
       </div>
       <div class="testi-card">
         <div class="stars">★★★★★</div>
-        <p>"Notre spot brunch préféré à La Baule. Toujours frais, toujours beau, toujours bon."</p>
-        <div class="testi-who"><div class="av">T</div><div><b>Tiphanie B.</b><span>Avis Google</span></div></div>
+        <p>"Cadre authentique, vraiment l'esprit ferme bretonne. Le cidre fermier est top, parfait pour un déjeuner en famille."</p>
+        <div class="testi-who"><div class="av">S</div><div><b>Sophie L.</b><span>Avis Google</span></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="terrace">
+  <div class="wrap reveal-up">
+    <div class="terrace-card">
+      <img src="REMPLACER-PHOTO-TERRASSE-JARDIN.jpg" alt="Jardin et terrasse La Ferme du Grand Clos">
+      <div class="terrace-content">
+        <h3>Un grand jardin ombragé, en plein cœur de La Baule</h3>
+        <p>Lampadaires, parasols et grands pins maritimes : notre terrasse est pensée pour les longs déjeuners d'été comme pour les fins de journée tranquilles.</p>
       </div>
     </div>
   </div>
@@ -535,11 +568,16 @@
 <section class="cta-section" id="reserver">
   <div class="wrap cta-inner reveal-up">
     <span class="sec-eyebrow">Réservation</span>
-    <h2>Votre table vous attend</h2>
-    <p>Midi, brunch ou apéro — réservez en quelques secondes et venez fleurir votre journée.</p>
+    <h2>Votre table à la ferme vous attend</h2>
+    <p>Midi ou soir, en intérieur ou sur la terrasse — réservez en quelques secondes.</p>
     <div class="cta-row">
-      <a href="tel:+33000000000" class="btn">Appeler le restaurant</a>
+      <a href="tel:+33000000000" class="btn">Appeler la crêperie</a>
       <a href="#" class="btn btn-outline">Réserver en ligne</a>
+    </div>
+    <div class="cta-address">
+      <div><b>Adresse</b>12 Allée des Cormorans, 44500 La Baule-Escoublac</div>
+      <div><b>Horaires</b>Tous les jours, midi & soir</div>
+      <div><b>Téléphone</b>02 40 00 00 00</div>
     </div>
   </div>
 </section>
@@ -548,13 +586,13 @@
   <div class="wrap">
     <div class="foot-grid">
       <div>
-        <div class="foot-logo">Bloom La Baule</div>
-        <p style="font-size:0.86rem; max-width:260px;">Café · Restaurant — une pause fleurie au cœur de La Baule, brunchs et planches à partager toute la journée.</p>
+        <div class="foot-logo">La Ferme du Grand Clos</div>
+        <p style="font-size:0.86rem; max-width:260px;">Crêperie artisanale à La Baule — galettes de blé noir et crêpes maison, dégustées en salle ou sur notre grande terrasse.</p>
       </div>
       <div>
         <h5>Navigation</h5>
         <ul>
-          <li><a href="#about">L'esprit Bloom</a></li>
+          <li><a href="#about">La Ferme</a></li>
           <li><a href="#menu">La carte</a></li>
           <li><a href="#gallery">Galerie</a></li>
           <li><a href="#avis">Avis</a></li>
@@ -563,42 +601,39 @@
       <div>
         <h5>Infos pratiques</h5>
         <ul>
-          <li>Ouvert 7j/7</li>
-          <li>Brunch jusqu'à 14h le week-end</li>
-          <li>Terrasse & intérieur</li>
+          <li>Ouvert 7j/7, midi & soir</li>
+          <li>Terrasse & jardin ombragé</li>
+          <li>Réservation conseillée</li>
         </ul>
       </div>
       <div>
         <h5>Adresse</h5>
         <ul>
-          <li>Centre-ville, La Baule</li>
-          <li>À 2 min de la plage</li>
-          <li>contact@bloomlabaule.fr</li>
+          <li>12 Allée des Cormorans</li>
+          <li>44500 La Baule-Escoublac</li>
+          <li>contact@grandclos-labaule.fr</li>
         </ul>
       </div>
     </div>
     <div class="foot-bottom">
-      <span>© 2026 Bloom La Baule — Tous droits réservés</span>
-      <span>Site conçu avec ✦ pour Bloom</span>
+      <span>© 2026 La Ferme du Grand Clos — Tous droits réservés</span>
+      <span>Site conçu avec ✦ pour La Ferme du Grand Clos</span>
     </div>
   </div>
 </footer>
 
 <script>
-  // header scroll state
   const header = document.getElementById('header');
   window.addEventListener('scroll', () => {
     header.classList.toggle('scrolled', window.scrollY > 20);
   });
 
-  // reveal on scroll
   const revealEls = document.querySelectorAll('.reveal-up');
   const io = new IntersectionObserver((entries) => {
     entries.forEach(e => { if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
   }, {threshold:0.15});
   revealEls.forEach(el => io.observe(el));
 
-  // menu tabs
   const tabs = document.querySelectorAll('.menu-tab');
   const panels = document.querySelectorAll('.menu-panel');
   tabs.forEach(tab => {
