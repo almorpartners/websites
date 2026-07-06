@@ -252,7 +252,7 @@
 
   /* ---------- menu / gallery ---------- */
   .menu-panel{
-    padding: 0 120px;
+    padding: 0 60px;
 }
   .menu{background:var(--cream);}
   .menu-tabs{display:flex; gap:12px; margin-bottom:50px; flex-wrap:wrap;}
@@ -261,7 +261,8 @@
     border:1.5px solid var(--line); cursor:pointer; background:transparent; transition:.25s;
   }
   .menu-tab.active, .menu-tab:hover{background:var(--ink); color:var(--cream); border-color:var(--ink);}
-
+.menu-grid{display:grid; grid-template-columns:repeat(2,1fr); gap:18px 50px;}
+  @media (max-width:760px){.menu-grid{grid-template-columns:1fr;}}
   .menu-item{
     display:flex; justify-content:space-between; gap:16px; padding:18px 0;
     border-bottom:1px dashed var(--line);
